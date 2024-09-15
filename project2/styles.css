@@ -1,68 +1,99 @@
-/* importing fonts */
-@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+    /* Importing the 'Muli' font from Google Fonts */
+    @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 
+    /* Applying universal box-sizing to include padding and border within the element's total width and height */
+    * {
+      box-sizing: border-box;
+    }
 
-*{
-    box-sizing: border-box;
-}
+    /* Styling the body */
+    body {
+      /* Setting the imported font 'Muli' as the font for the body, with 'sans-serif' as fallback */
+      font-family: 'Muli', sans-serif;
+      /* Making the body a flex container to center content both vertically and horizontally */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* Setting the height to 100% of the viewport height */
+      height: 100vh;
+      /* Hiding any overflow content from the viewport */
+      overflow: hidden;
+      /* Removing default margin around the body */
+      margin: 0;
+    }
 
-body{
-    font-family: 'Muli' ,'sans-serif';
-    display:flex;
-    align-items:center;
-    justify-content: center;
-    height:100vh;
-    overflow:hidden;
-    margin:0;
-}
-
-.container{
-    display: flex;
-    width: 90vw;
-}
-
-.panel{
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 80vh;
-    border-radius: 50px;
-    color: #fff;
-    cursor: pointer;
-  flex:0.5;
-  margin: 10px;  
-  position:relative;    
-  -webkit-transition: all 700ms ease-in;
-
-}
-
-.panel h3{
-    font-size: 13;
-        position: absolute;
-        left:20px;
-        bottom:20px;
-        margin:0;
-opacity: 0;
-}
-
-.panel.active {
-    flex: 5;
-  } 
-
-  .panel.active h3 {
-    opacity: 1;
-    transition: opacity 0.3s ease-in 0.4s;
-  }
-
-
-  @media (max-width: 480px) {
+    /* Styling the container that holds all the panels */
     .container {
-      width: 100vw;
+      /* Displaying the container's children (panels) in a horizontal flex layout */
+      display: flex;
+      /* Setting the container's width to 90% of the viewport width */
+      width: 90vw;
     }
-  
-    .panel:nth-of-type(4),
-    .panel:nth-of-type(5) {
-      display: none;
+
+    /* Styling individual panels */
+    .panel {
+      /* Ensuring the background image covers the entire panel */
+      background-size: cover;
+      /* Centering the background image */
+      background-position: center;
+      /* Preventing the background from repeating */
+      background-repeat: no-repeat;
+      /* Setting the height of each panel to 80% of the viewport height */
+      height: 80vh;
+      /* Rounding the corners of each panel */
+      border-radius: 50px;
+      /* Setting text color to white */
+      color: #fff;
+      /* Making the cursor change to pointer when hovering over the panel */
+      cursor: pointer;
+      /* Making the panel take up 50% of available space by default */
+      flex: 0.5;
+      /* Adding a margin around each panel */
+      margin: 10px;
+      /* Positioning the panel relative for positioning internal elements */
+      position: relative;
+      /* Applying a smooth transition for all properties when the panel changes state */
+      -webkit-transition: all 700ms ease-in;
     }
-  }
-  
+
+    /* Styling the heading inside the panel */
+    .panel h3 {
+      /* Setting font size for the heading */
+      font-size: 24px;
+      /* Positioning the heading absolutely at the bottom-left corner of the panel */
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      /* Removing any default margins */
+      margin: 0;
+      /* Initially making the heading invisible (opacity 0) */
+      opacity: 0;
+    }
+
+    /* When a panel has the 'active' class */
+    .panel.active {
+      /* Expanding the active panel to take up more space (5 times the normal size) */
+      flex: 5;
+    }
+
+    /* When a panel has the 'active' class, make the heading inside visible */
+    .panel.active h3 {
+      /* Making the heading visible by setting opacity to 1 */
+      opacity: 1;
+      /* Adding a delay to the opacity transition to create a smoother effect */
+      transition: opacity 0.3s ease-in 0.4s;
+    }
+
+    /* Media query to apply styles for screens smaller than 480px (mobile) */
+    @media (max-width: 480px) {
+      .container {
+        /* Making the container take up 100% of the viewport width on small screens */
+        width: 100vw;
+      }
+
+      /* Hiding the 4th and 5th panels on small screens to fit content better */
+      .panel:nth-of-type(4),
+      .panel:nth-of-type(5) {
+        display: none;
+      }
+    }
